@@ -1,0 +1,21 @@
+<div id="settings">
+  <h2>Settings</h2>
+  <label>Username:</label>
+  <input type="text" id="username" placeholder="Your name"><br><br>
+
+  <label>Voice Reminders:</label>
+  <select id="voiceSetting">
+    <option value="on">On</option>
+    <option value="off">Off</option>
+  </select><br><br>
+
+  <button onclick="saveSettings()">Save Settings</button>
+</div>
+
+<script>
+function saveSettings() {
+  const name = document.getElementById("username").value;
+  const voicePref = document.getElementById("voiceSetting").value;
+  alert("Settings saved: " + name + " / Voice reminders: " + voicePref);
+}
+</script>

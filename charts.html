@@ -1,0 +1,15 @@
+<canvas id="progressChart" width="200" height="200"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('progressChart');
+new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Completed', 'Remaining'],
+    datasets: [{
+      data: [70, 30],
+      backgroundColor: ['#4caf50', '#ccc']
+    }]
+  }
+});
+</script>
