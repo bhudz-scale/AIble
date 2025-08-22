@@ -1,15 +1,21 @@
-<canvas id="progressChart" width="200" height="200"></canvas>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-const ctx = document.getElementById('progressChart');
-new Chart(ctx, {
-  type: 'doughnut',
-  data: {
-    labels: ['Completed', 'Remaining'],
-    datasets: [{
-      data: [70, 30],
-      backgroundColor: ['#4caf50', '#ccc']
-    }]
-  }
-});
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charts - AIble</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="charts.html">Charts</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+
+  <h1>Charts</h1>
+  <p>Here you’ll be able to view your progress in graphs and stats.</p>
+</body>
+</html>
