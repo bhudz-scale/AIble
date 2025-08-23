@@ -6,6 +6,11 @@
   <title>AIble</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    /* Use San Francisco (system font) */
+    body, h1, p, button {
+      font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
     /* Splash Screen Styles */
     #splash {
       position: fixed;
@@ -19,17 +24,16 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 2em;
+      font-size: 2.5em;
       opacity: 0;
-      animation: fadeInOut 4s ease forwards;
+      animation: fadeInOut 6s ease forwards;
       z-index: 9999;
     }
 
     @keyframes fadeInOut {
       0% { opacity: 0; }
-      20% { opacity: 1; }
-      80% { opacity: 1; }
+      30% { opacity: 1; }
+      70% { opacity: 1; }
       100% { opacity: 0; visibility: hidden; }
     }
 
@@ -37,14 +41,15 @@
       font-size: 1em;
       margin-top: 20px;
       opacity: 0;
-      animation: fadeInText 4s ease forwards;
+      animation: fadeInText 6s ease forwards;
       animation-delay: 1s;
     }
 
     @keyframes fadeInText {
       0% { opacity: 0; }
       40% { opacity: 1; }
-      100% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
     }
 
     /* Hide main content until splash is done */
@@ -84,15 +89,7 @@
     setTimeout(() => {
       document.getElementById("splash").style.display = "none";
       document.getElementById("main-content").style.display = "block";
-    }, 4000); // 4 seconds to match animation
+    }, 6000); // 6 seconds to match animation
 
-    // Trigger speech right after splash shows
-    window.onload = () => {
-      setTimeout(() => {
-        speak("The Future of Planning");
-      }, 1000); // 1 second delay to sync with text
-    };
-  </script>
-</body>
-</html>
+    // Trigger speech right after splash
 
