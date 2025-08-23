@@ -57,7 +57,7 @@
       to { opacity: 0; visibility: hidden; }
     }
 
-    /* Main content (hidden until splash fades) */
+    /* Main content */
     #main {
       display: none;
       padding: 20px;
@@ -79,7 +79,7 @@
 
   <!-- Splash screen -->
   <div id="splash">
-    <h1>AIble</h1>
+    <h1>Aible</h1>
     <p>The Future of Planning</p>
   </div>
 
@@ -92,35 +92,43 @@
       <a href="settings.html">Settings</a>
     </nav>
 
-    <h1>Welcome to AIble 🚀</h1>
+    <h1>Welcome to Aible 🚀</h1>
     <p>Your personal scheduling and goals assistant.</p>
 
     <button onclick="sayHello()">Test My App</button>
   </div>
 
   <script>
-    // Splash logic
+    // Show main after splash
     window.addEventListener("load", () => {
-      // Show main after splash fades
       setTimeout(() => {
         document.getElementById("splash").style.display = "none";
         document.getElementById("main").style.display = "block";
-      }, 7000); // matches fadeOut duration
+      }, 7000);
 
-      // Speak "The Future of Planning"
-      setTimeout(() => {
-        const utterance = new SpeechSynthesisUtterance("The Future of Planning");
-        utterance.rate = 1;
-        utterance.pitch = 1;
-        utterance.lang = "en-US";
-        window.speechSynthesis.speak(utterance);
-      }, 3000);
+      // Try to auto-play voice
+      speakTagline();
     });
 
-    // Example button function
+    function speakTagline() {
+      const utterance = new SpeechSynthesisUtterance("The Future of Planning");
+      utterance.rate = 1;
+      utterance.pitch = 1;
+      utterance.lang = "en-US";
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // If autoplay is blocked, retry on first click
+    document.addEventListener("click", () => {
+      if (!window.speechSynthesis.speaking) {
+        speakTagline();
+      }
+    }, { once: true });
+
     function sayHello() {
-      alert("Hello from AIble!");
+      alert("Hello from Aible!");
     }
   </script>
 </body>
 </html>
+
